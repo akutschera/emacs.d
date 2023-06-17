@@ -30,6 +30,7 @@
 
 ;; optional if you want which-key integration
 (use-package which-key
+    :ensure t
     :config
     (which-key-mode))
 ;; clojure-mode is (naturally) the major mode for editing
