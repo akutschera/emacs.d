@@ -9,3 +9,6 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 (setq make-backup-files nil) ;; TODO: Braucht's das noch?
+
+;; Highlights matching parenthesis
+(show-paren-mode 1)
