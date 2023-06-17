@@ -24,3 +24,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; All other features are loaded one by one from
+;; the customizations directory. Read those files
+;; to find out what they do.
+(add-to-list 'load-path "~/.emacs.d/customizations")
+
+(defvar addons
+  '("ui.el"
+    ))
+
+(dolist (x addons)
+  (load x))
+
