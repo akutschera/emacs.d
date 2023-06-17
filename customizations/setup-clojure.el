@@ -16,6 +16,16 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
+;; First install the package:
+(use-package flycheck-clj-kondo
+  :ensure t)
+
+;; then install the checker as soon as `clojure-mode' is loaded
+(use-package clojure-mode
+  :ensure t
+  :config
+  (require 'flycheck-clj-kondo))
+
 ;; optionally
 (use-package lsp-ui :commands lsp-ui-mode)
 ;; if you are helm user
@@ -57,7 +67,16 @@
 ;;            cider-repl-history-file "~/.emacs.d/cider-history"
 ;;            cider-repl-pop-to-buffer-on-connect t
 ;;            cider-repl-wrap-history t))
-
+(use-package cider
+  :config
+  (setq
+   cider-show-error-buffer t
+           cider-auto-select-error-buffer t
+           cider-repl-history-file "~/.emacs.d/cider-history"
+           cider-repl-pop-to-buffer-on-connect t
+           cider-repl-wrap-history t)
+  (cider-repl-toggle-pretty-printing)
+  )
 ;; ;; company provides auto-completion for CIDER
 ;; ;; see https://docs.cider.mx/cider/usage/code_completion.html
 ;; (setup (:package company)
@@ -70,16 +89,26 @@
 ;; (setup (:package cider-hydra)
 ;;   (:hook-into clojure-mode))
 
-;; ;; additional refactorings for CIDER
-;; ;; e.g. add missing libspec, extract function, destructure keys
-;; ;; https://github.com/clojure-emacs/clj-refactor.el
+;; additional refactorings for CIDER
+;; e.g. add missing libspec, extract function, destructure keys
+;; https://github.com/clojure-emacs/clj-refactor.el
 ;; (setup (:package clj-refactor)
 ;;   (cljr-add-keybindings-with-prefix "C-c C-m")
 ;;   (:hook-into clojure-mode))
+(use-package clj-refactor
+  :preface
+  (defun my-clojure-mode-hook ()
+    (clj-refactor-mode 1)
+    (yas-minor-mode 1) ; for adding require/use/import statements
+    (cljr-add-keybindings-with-prefix "s-c r"))
+    :hook
+    (clojure-mode . my-clojure-mode-hook)
+    (clojure-mode . subword-mode)
+ )
 
-;; ;; enable paredit in your REPL
-;; (setup cider-repl-mode
-;;   (:hook paredit-mode))
+;; enable paredit in your REPL
+(setup cider-repl-mode
+  (:hook paredit-mode))
 
 ;; ;; Use clojure mode for other extensions
 ;; (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))

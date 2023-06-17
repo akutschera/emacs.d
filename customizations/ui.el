@@ -12,6 +12,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)     ;; changes all yes/no questions to y/n type
 (setq inhibit-startup-message t)  ;; go straight to scratch buffer on startup
 (setq ring-bell-function 'ignore) ;; turn off audible bell
+(setq xref-prompt-for-identifier nil) ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Identifier-Search.html
+(global-display-line-numbers-mode 1)
 
 ;; show full path in title bar
 (setq-default frame-title-format "%b (%f)")

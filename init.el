@@ -9,9 +9,10 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t
-        use-package-expand-minimally t))
+;; (eval-and-compile
+;;   (setq use-package-always-ensure t
+;;         use-package-expand-minimally t))
+(setq use-package-always-ensure t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -19,7 +20,7 @@
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(which-key clj-refactor cider-hydra company cider clojure-mode lsp-treemacs lsp-ivy lsp-ui lsp-mode setup use-package)))
+   '(projectile helm-lsp which-key clj-refactor cider-hydra company cider clojure-mode lsp-treemacs lsp-ivy lsp-ui lsp-mode setup use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -34,6 +35,9 @@
 
 (defvar addons
   '(
+    "editing.el"
+    "navigation.el"
+    "projects.el"
     "setup-clojure.el"
     "ui.el"
     ))
