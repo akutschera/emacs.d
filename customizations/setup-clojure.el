@@ -17,12 +17,10 @@
   :commands lsp)
 
 ;; First install the package:
-(use-package flycheck-clj-kondo
-  :ensure t)
+(use-package flycheck-clj-kondo)
 
 ;; then install the checker as soon as `clojure-mode' is loaded
 (use-package clojure-mode
-  :ensure t
   :config
   (require 'flycheck-clj-kondo))
 
@@ -40,7 +38,6 @@
 
 ;; optional if you want which-key integration
 (use-package which-key
-    :ensure t
     :config
     (which-key-mode))
 ;; clojure-mode is (naturally) the major mode for editing

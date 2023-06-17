@@ -12,3 +12,8 @@
 
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
+
+;; https://github.com/magnars/expand-region.el
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
