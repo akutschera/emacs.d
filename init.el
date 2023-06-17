@@ -17,7 +17,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(use-package)))
+ '(package-selected-packages
+   '(clj-refactor cider-hydra company cider clojure-mode lsp-treemacs lsp-ivy lsp-ui lsp-mode setup use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -31,7 +32,9 @@
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
 (defvar addons
-  '("ui.el"
+  '(
+    "setup-clojure.el"
+    "ui.el"
     ))
 
 (dolist (x addons)
