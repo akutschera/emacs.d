@@ -52,3 +52,17 @@
 ;; awhile, you won't need the toolbar.
 ;; (tool-bar-mode -1)
 
+(use-package rainbow-delimiters
+  :custom-face (rainbow-delimiters-depth-1-face ((t :foreground "#c66" ))) ; red
+  :custom-face (rainbow-delimiters-depth-2-face ((t :foreground "#6c6" ))) ; green
+  :custom-face (rainbow-delimiters-depth-3-face ((t :foreground "#69f" ))) ; blue
+  :custom-face (rainbow-delimiters-depth-4-face ((t :foreground "#cc6" ))) ; yellow
+  :custom-face (rainbow-delimiters-depth-5-face ((t :foreground "#6cc" ))) ; cyan
+  :custom-face (rainbow-delimiters-depth-6-face ((t :foreground "#c6c" ))) ; magenta
+  :custom-face (rainbow-delimiters-depth-7-face ((t :foreground "#ccc" ))) ; light gray
+  :custom-face (rainbow-delimiters-depth-8-face ((t :foreground "#999" ))) ; medium gray
+  :custom-face (rainbow-delimiters-depth-9-face ((t :foreground "#666" ))) ; darkbpr gray
+  :hook
+  (prog-mode . rainbow-delimiters-mode)
+  )
+
