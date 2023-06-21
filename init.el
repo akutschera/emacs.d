@@ -19,7 +19,7 @@
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(rainbow-delimiters expand-region projectile helm-lsp which-key clj-refactor cider-hydra company cider clojure-mode lsp-treemacs lsp-ivy lsp-ui lsp-mode setup use-package)))
+   '(highlight aggressive-indent auto-complete move-dup rainbow-delimiters expand-region projectile helm-lsp which-key clj-refactor cider-hydra company cider clojure-mode lsp-treemacs lsp-ivy lsp-ui lsp-mode setup use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,3 +44,11 @@
 (dolist (x addons)
   (load x))
 
+;; not big enough yet to be moved to its own file
+;; https://github.com/jrblevin/markdown-mode/
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+              ("C-c C-e" . markdown-do)))
