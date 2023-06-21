@@ -17,3 +17,17 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
+
+;; https://github.com/wyuenho/move-dup
+;; M-<up|down> moves a line, C-M-<up|down> copies a line
+(use-package move-dup)
+(global-move-dup-mode)
+
+;; https://github.com/auto-complete/auto-complete
+(use-package auto-complete
+  :config
+  (auto-complete-mode 1)
+  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+  )
+
+(global-auto-revert-mode 1) ;; auto-reloads when file has changed on disc
