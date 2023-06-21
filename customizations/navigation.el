@@ -4,3 +4,4 @@
   (windmove-default-keybindings))
 
 (setq  xref-auto-jump-to-first-xref t)
+(setq xref-prompt-for-identifier nil) ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Identifier-Search.html
