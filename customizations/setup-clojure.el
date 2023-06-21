@@ -107,6 +107,12 @@
 (setup cider-repl-mode
   (:hook paredit-mode))
 
+;; https://github.com/Malabarba/aggressive-indent-mode
+(use-package aggressive-indent
+  :hook
+  (clojure-mode . aggressive-indent-mode)
+  )
+
 ;; ;; Use clojure mode for other extensions
 ;; (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
