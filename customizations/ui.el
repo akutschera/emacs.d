@@ -26,6 +26,9 @@
 (when (string-equal system-type "darwin") 'ok
   (global-set-key (kbd "s-t") '(lambda () (interactive))))
 
+(when window-system
+  (set-frame-position (selected-frame) 0 0)
+  (set-frame-size (selected-frame) 250 50))
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
@@ -66,3 +69,4 @@
   (prog-mode . rainbow-delimiters-mode)
   )
 
+(use-package highlight)
