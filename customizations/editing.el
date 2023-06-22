@@ -1,4 +1,3 @@
-
 (use-package company
   :init
   (setq global-company-mode 1)
@@ -31,3 +30,6 @@
   )
 
 (global-auto-revert-mode 1) ;; auto-reloads when file has changed on disc
+
+;; overwrite selected text
+(delete-selection-mode t)
