@@ -33,3 +33,8 @@
 
 ;; overwrite selected text
 (delete-selection-mode t)
+
+;; Multi cursors https://github.com/magnars/multiple-cursors.el
+(use-package multiple-cursors)
+(global-set-key (kbd "s-j") 'mc/mark-next-like-this)
+(global-set-key (kbd "s-J") 'mc/mark-previous-like-this)
