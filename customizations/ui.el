@@ -69,4 +69,5 @@
   (prog-mode . rainbow-delimiters-mode)
   )
 
-(use-package highlight)
+;; remember where in the file I was when I come back, https://www.emacswiki.org/emacs/SavePlace
+(save-place-mode 1)
