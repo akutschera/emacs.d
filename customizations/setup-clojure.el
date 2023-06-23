@@ -73,6 +73,8 @@
            cider-repl-pop-to-buffer-on-connect t
            cider-repl-wrap-history t)
   (cider-repl-toggle-pretty-printing)
+  :hook
+  (cider-repl-mode . paredit-mode)
   )
 ;; ;; company provides auto-completion for CIDER
 ;; ;; see https://docs.cider.mx/cider/usage/code_completion.html
@@ -103,9 +105,6 @@
     (clojure-mode . subword-mode)
  )
 
-;; enable paredit in your REPL
-(setup cider-repl-mode
-  (:hook paredit-mode))
 
 ;; https://github.com/Malabarba/aggressive-indent-mode
 (use-package aggressive-indent
