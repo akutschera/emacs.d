@@ -71,7 +71,8 @@
            cider-auto-select-error-buffer t
            cider-repl-history-file "~/.emacs.d/cider-history"
            cider-repl-pop-to-buffer-on-connect t
-           cider-repl-wrap-history t)
+           cider-repl-wrap-history t
+	   cider-stacktrace-default-filters '(tooling dup java))
   (cider-repl-toggle-pretty-printing)
   :hook
   (cider-repl-mode . paredit-mode)
