@@ -18,9 +18,12 @@
 
 
 ;; https://github.com/wyuenho/move-dup
-;; M-<up|down> moves a line, C-M-<up|down> copies a line
-(use-package move-dup)
-(global-move-dup-mode)
+;; s-<up|down> moves a line, C-M-<up|down> copies a line
+(use-package move-dup
+  :bind (("s-<up>"   . move-dup-move-lines-up)
+         ("C-M-<up>" . move-dup-duplicate-up)
+         ("s-<down>"   . move-dup-move-lines-down)
+         ("C-M-<down>" . move-dup-duplicate-down)))
 
 ;; https://github.com/auto-complete/auto-complete
 (use-package auto-complete
