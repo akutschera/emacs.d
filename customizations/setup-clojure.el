@@ -16,12 +16,19 @@
 (use-package flycheck-clj-kondo)
 
 ;; then install the checker as soon as `clojure-mode' is loaded
+(defun clojure-word-chars ()
+  "Add more special characters " "for Clojure."
+  (modify-syntax-entry ?+ "w")
+  (modify-syntax-entry ?- "w")
+  (modify-syntax-entry ?< "w")
+  (modify-syntax-entry ?> "w"))
+
 (use-package clojure-mode
   :config
   (require 'flycheck-clj-kondo)
   :hook
   (clojure-mode . paredit-mode)
-  (clojure-mode . subword-mode))
+  (clojure-mode . clojure-word-chars))
 
 ;; optionally
 (use-package lsp-ui :commands lsp-ui-mode)
