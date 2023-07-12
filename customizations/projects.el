@@ -7,3 +7,5 @@
   (setq projectile-create-missing-test-files 1)
   :bind (:map projectile-mode-map
               ("s-p" . projectile-command-map)))
+
+(global-set-key (kbd "M-#") 'xref-find-references) ;; M-? is used by paredit
