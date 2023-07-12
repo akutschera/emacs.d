@@ -58,6 +58,8 @@
    cider-stacktrace-default-filters '(tooling dup java))
   (cider-repl-toggle-pretty-printing)
   :hook
+  (cider-mode-hook . cider-company-enable-fuzzy-completion)
+  (cider-repl-mode . cider-company-enable-fuzzy-completion)
   (cider-repl-mode . paredit-mode)
   )
 
