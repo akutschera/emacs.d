@@ -15,3 +15,7 @@
    (define-key origami-mode-map (kbd "s-o s-c") 'origami-close-node)
    :init
   (global-origami-mode t))
+
+;; so I can easily move to matching parens
+(global-set-key (kbd "s-<right>") 'forward-sexp)
+(global-set-key (kbd "s-<left>") 'backward-sexp)
