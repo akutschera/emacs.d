@@ -43,6 +43,14 @@
     :config
     (which-key-mode))
 
+(defun run-clj-test ()
+  "runs the test where the point is currently in, no matter where the point is"
+  (interactive)
+  (end-of-defun)
+  (backward-char)
+  (backward-char)
+  (cider-eval-last-sexp)
+  )
 ;; ;; CIDER is a whole interactive development environment for
 ;; ;; Clojure. There is a ton of functionality here, so be sure
 ;; ;; to check out the excellent documentation at
@@ -57,6 +65,8 @@
    cider-repl-wrap-history t
    cider-stacktrace-default-filters '(tooling dup java))
   (cider-repl-toggle-pretty-printing)
+  :bind
+  ("<f5>" . run-clj-test)
   :hook
   (cider-mode-hook . cider-company-enable-fuzzy-completion)
   (cider-repl-mode . cider-company-enable-fuzzy-completion)
