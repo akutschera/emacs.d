@@ -43,7 +43,7 @@
     :config
     (which-key-mode))
 
-(defun run-clj-test ()
+(defun akutschera/run-clj-test ()
   "runs the test where the point is currently in, no matter where the point is"
   (interactive)
   (end-of-defun)
@@ -51,6 +51,14 @@
   (backward-char)
   (cider-eval-last-sexp)
   )
+
+(defun akutschera/clj-compile-after-save ()
+  "load current buffer into repl after save."
+  (when (and (not (string-match "project.clj" (buffer-file-name)))
+             (or (string-match ".\\.cljc$" (buffer-file-name)) (string-match ".\\.clj$" (buffer-file-name)))
+	     )
+    (cider-load-buffer)))
+
 ;; ;; CIDER is a whole interactive development environment for
 ;; ;; Clojure. There is a ton of functionality here, so be sure
 ;; ;; to check out the excellent documentation at
@@ -66,9 +74,11 @@
    cider-stacktrace-default-filters '(tooling dup java))
   (cider-repl-toggle-pretty-printing)
   :bind
-  ("<f5>" . run-clj-test)
+  ("<f5>" . akutschera/run-clj-test)
   :hook
-  (cider-mode-hook . cider-company-enable-fuzzy-completion)
+  (cider-mode . (lambda ()
+            (add-hook 'after-save-hook 'akutschera/clj-compile-after-save nil 'make-it-local)))
+  (cider-mode . cider-company-enable-fuzzy-completion)
   (cider-repl-mode . cider-company-enable-fuzzy-completion)
   (cider-repl-mode . paredit-mode)
   )
