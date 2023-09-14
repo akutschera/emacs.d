@@ -1,17 +1,3 @@
-;; See:  https://clojure-lsp.io/
-;; also: https://emacs-lsp.github.io/lsp-mode/
-(use-package lsp-mode
-  :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "C-c l")
-  :bind
-  ("M-<f7>" . lsp-find-references)
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (clojure-mode . lsp)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
-
 ;; First install the package:
 (use-package flycheck-clj-kondo)
 
@@ -28,15 +14,9 @@
   (require 'flycheck-clj-kondo)
   :hook
   (clojure-mode . paredit-mode)
-  (clojure-mode . clojure-word-chars))
-
-;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
-;; if you are helm user
-(use-package helm-lsp :commands helm-lsp-workspace-symbol)
-;; if you are ivy user
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+  (clojure-mode . clojure-word-chars)
+  (clojure-mode . eglot-ensure) ;; see https://joaotavora.github.io/eglot/ and https://clojure-lsp.io
+  )
 
 ;; optional if you want which-key integration
 (use-package which-key

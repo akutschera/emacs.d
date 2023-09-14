@@ -11,11 +11,14 @@ backups
 melpa-stable
 elpa
 custom.el
+ac-comphist.dat
 archive-contents
 *.elc
 .cache
+eln-cache
+.lsp-session*
+.mc-lists.el
+network-security.data
 recentf
 transient
-network-security.data
-.lsp-session*
-ac-comphist.dat
+tramp
