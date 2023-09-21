@@ -26,6 +26,10 @@
 	(string-equal filename ".clj-kondo")
         ))
   (add-to-list 'treemacs-ignored-file-predicates 'custom-treemacs-ignore)
+  :bind
+  (:map global-map
+      ("s-1" . treemacs)
+      )
 
   )
 
