@@ -13,24 +13,16 @@
 ;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
   :config
-  (setq treemacs-project-follow-mode 1)
-  (setq treemacs-project-follow-cleanup 1)
-  (setq treemacs-display-current-project-exclusively 1)
-
-  ;; ignore some files that do not belong to projects
-  ;; see https://github.com/dakra/dmacs/blob/master/init.org#treemacs-a-tree-layout-file-explorer
-  (defun custom-treemacs-ignore (filename absolute-path)
-    (or (string-equal filename ".lsp")
-        (string-equal filename ".cpcache")
-	(string-equal filename ".cache")
-	(string-equal filename ".clj-kondo")
-        ))
-  (add-to-list 'treemacs-ignored-file-predicates 'custom-treemacs-ignore)
+  (setq treemacs-tag-follow-delay 1) ;; so I see the current file in treemacs after 1 sec
+  (treemacs-filewatch-mode t) ;; so filechanges (e.g. "save") are shown in treemacs
+  
+  ;; 'simple won't work with treemacs-hide-gitignored-files-mode, see https://github.com/Alexander-Miller/treemacs/issues/962
+  (treemacs-git-mode 'deferred) ;; so changed files have a different color.
+  (treemacs-hide-gitignored-files-mode t)
   :bind
   (:map global-map
       ("s-1" . treemacs)
       )
-
   )
 
 (use-package treemacs-projectile
