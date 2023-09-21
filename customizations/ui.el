@@ -19,8 +19,7 @@
 (setq-default frame-title-format "%b (%f)")
 
 ;; initial frame height and width
-(add-to-list 'default-frame-alist '(height . 45))
-(add-to-list 'default-frame-alist '(width . 100))
+(setq initial-frame-alist (quote ((fullscreen . maximized)))) ;; I want the biggest window I can get
 
 ;; on a Mac, don't pop up font menu
 (when (string-equal system-type "darwin") 'ok
