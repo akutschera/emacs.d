@@ -82,6 +82,11 @@
     (clojure-mode . my-clojure-mode-hook)
  )
 
+;; override clj-refactor template
+(defcustom cljr-clojure-test-declaration "[clojure.test :as t :refer [deftest is testing]]"
+  "The require form to use when clojure.test is in use in a clj file."
+  :type 'string
+  :safe #'stringp)
 
 ;; https://github.com/Malabarba/aggressive-indent-mode
 (use-package aggressive-indent
