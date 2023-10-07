@@ -21,11 +21,12 @@
   (treemacs-hide-gitignored-files-mode t)
   :bind
   (:map global-map
-      ("s-1" . treemacs)
-      )
+	("s-1" . treemacs)
+	("s-0" . treemacs-select-window)
+  )
   )
 
 (use-package treemacs-projectile
   :after treemacs projectile)
 
-(use-package yasnippet-snippets)
+(use-package yasnippet-snippets) ;; https://github.com/AndreaCrotti/yasnippet-snippets
