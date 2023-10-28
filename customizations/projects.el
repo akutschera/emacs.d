@@ -23,8 +23,12 @@
   (:map global-map
 	("s-1" . treemacs)
 	("s-0" . treemacs-select-window)
-  )
-  )
+	)
+  (:map local-function-key-map
+	("s-b" . treemacs-bookmarks)
+	("s-<left>" . treemacs-goto-parent-node)
+        )
+)
 
 (use-package treemacs-projectile
   :after treemacs projectile)

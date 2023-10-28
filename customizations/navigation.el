@@ -22,6 +22,3 @@
   :bind
   ("s-<f2>" . flycheck-next-error))
 
-;; so I can easily move to matching parens
-(global-set-key (kbd "s-<right>") 'forward-sexp)
-(global-set-key (kbd "s-<left>") 'backward-sexp)
