@@ -48,6 +48,12 @@
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
 
+;; when splitting window below, move point to lower window
+(defun ak-split-window-below ()
+  (interactive)
+  (select-window (split-window-below)))
+(global-set-key (kbd "C-x 2") 'ak-split-window-below)
+
 ;; CUSTOMIZE
 
 ;; You can uncomment this to remove the graphical toolbar at the top. After
