@@ -25,7 +25,7 @@
 	("s-0" . treemacs-select-window)
 	)
   (:map local-function-key-map
-	("s-b" . treemacs-bookmarks)
+	("s-b" . treemacs-bookmark)
 	("s-<left>" . treemacs-goto-parent-node)
         )
 )
