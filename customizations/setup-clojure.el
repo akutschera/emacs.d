@@ -78,7 +78,11 @@
     (clj-refactor-mode 1)
     (yas-minor-mode 1) ; for adding require/use/import statements
     (cljr-add-keybindings-with-prefix "s-c r"))
-    :hook
+  :config
+  (setq
+   cljr-warn-on-eval nil
+   )
+  :hook
     (clojure-mode . my-clojure-mode-hook)
  )
 
