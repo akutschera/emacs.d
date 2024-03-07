@@ -8,6 +8,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 (setq make-backup-files nil) ;; TODO: Braucht's das noch?
+(setq kill-whole-line t) ;; kills newline, too and all the indent of the next line
 
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
