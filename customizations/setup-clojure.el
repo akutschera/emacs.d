@@ -18,6 +18,18 @@
   (clojure-mode . eglot-ensure) ;; see https://joaotavora.github.io/eglot/ and https://clojure-lsp.io
   )
 
+(use-package lsp-mode
+  :hook ((clojure-mode . lsp)
+	 (clojurec-mode . lsp)
+	 (clojurescript-mode . lsp))
+  :config
+  (dolist (m '(clojure-mode
+	       clojurec-mode
+	       clojurescript-mode
+	       clojurex-mod))
+    (add-to-list 'lsp-language-id-configuration '(.m "clojure")))
+  )
+
 ;; optional if you want which-key integration
 (use-package which-key
     :config
@@ -52,7 +64,7 @@
    cider-repl-pop-to-buffer-on-connect 'display-only
    cider-repl-wrap-history t
    cider-stacktrace-default-filters '(tooling dup java))
-  (cider-repl-toggle-pretty-printing)
+  ;; (cider-repl-toggle-pretty-printing)
   :bind
   ("<f5>" . akutschera/run-clj-test)
   :hook
@@ -95,7 +107,7 @@
 ;; https://github.com/Malabarba/aggressive-indent-mode
 (use-package aggressive-indent
   :init
-  (setq aggressive-indent-sit-for-time 1.0) ;; set higher if you need more time to think
+  (setq aggressive-indent-sit-for-time 2.0) ;; set higher if you need more time to think
   :hook
   (clojure-mode . aggressive-indent-mode)
   )
