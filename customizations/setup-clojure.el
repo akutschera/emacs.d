@@ -18,6 +18,10 @@
   (clojure-mode . eglot-ensure) ;; see https://joaotavora.github.io/eglot/ and https://clojure-lsp.io
   )
 
+;; lets me use C-M-x inside (comment)
+;; https://docs.cider.mx/cider/usage/code_evaluation.html#evaluating-code-inside-comments
+(setq clojure-toplevel-inside-comment-form t)
+
 (use-package lsp-mode
   :hook ((clojure-mode . lsp)
 	 (clojurec-mode . lsp)
