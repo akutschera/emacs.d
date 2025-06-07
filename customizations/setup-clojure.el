@@ -12,15 +12,17 @@
 (use-package clojure-mode
   :config
   (require 'flycheck-clj-kondo)
+  (setq
+   ;; lets me use C-M-x inside (comment)
+   ;; https://docs.cider.mx/cider/usage/code_evaluation.html#evaluating-code-inside-comments
+   clojure-toplevel-inside-comment-form t
+   )
   :hook
   (clojure-mode . paredit-mode)
   (clojure-mode . clojure-word-chars)
   (clojure-mode . eglot-ensure) ;; see https://joaotavora.github.io/eglot/ and https://clojure-lsp.io
   )
 
-;; lets me use C-M-x inside (comment)
-;; https://docs.cider.mx/cider/usage/code_evaluation.html#evaluating-code-inside-comments
-(setq clojure-toplevel-inside-comment-form t)
 
 (use-package lsp-mode
   :hook ((clojure-mode . lsp)
@@ -64,6 +66,8 @@
   (setq
    cider-show-error-buffer t
    cider-auto-select-error-buffer t
+   ;; enable interrupts on Java 21+
+   cider-enable-nrepl-jvmti-agent t
    cider-repl-history-file "~/.emacs.d/cider-history"
    cider-repl-pop-to-buffer-on-connect 'display-only
    cider-repl-wrap-history t
