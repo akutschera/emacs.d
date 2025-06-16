@@ -21,6 +21,7 @@
   (clojure-mode . paredit-mode)
   (clojure-mode . clojure-word-chars)
   (clojure-mode . eglot-ensure) ;; see https://joaotavora.github.io/eglot/ and https://clojure-lsp.io
+  (clojure-mode . hs-minor-mode)
   )
 
 
