@@ -70,7 +70,9 @@
    ;; enable interrupts on Java 21+
    cider-enable-nrepl-jvmti-agent t
    cider-repl-history-file "~/.emacs.d/cider-history"
-   cider-repl-pop-to-buffer-on-connect 'display-only
+   ;; Do NOT autodisplay REPL buffer on connect
+   ;; https://docs.cider.mx/cider/repl/configuration.html#behavior-on-connect
+   cider-repl-pop-to-buffer-on-connect nil
    cider-repl-wrap-history t
    cider-stacktrace-default-filters '(tooling dup java))
   ;; (cider-repl-toggle-pretty-printing)
