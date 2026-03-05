@@ -30,12 +30,27 @@
 	 (clojurec-mode . lsp)
 	 (clojurescript-mode . lsp))
   :config
+  (setq lsp-semantic-tokens-enable t) ;; https://deepwiki.com/emacs-lsp/lsp-mode/5.1-basic-configuration#core-features
   (dolist (m '(clojure-mode
 	       clojurec-mode
 	       clojurescript-mode
 	       clojurex-mod))
     (add-to-list 'lsp-language-id-configuration '(.m "clojure")))
   )
+
+;; https://github.com/emacs-lsp/lsp-treemacs
+;; for navigating code and project structures
+(use-package lsp-treemacs
+  ;; TODO: re-arrange the keymaps
+  :bind
+  (:map global-map
+	 ("s-2" . lsp-treemacs-symbols)
+	 )
+  )
+
+;; for Quicker symbol searching with lsp-ivy
+;; https://github.com/emacs-lsp/lsp-ivy
+(use-package lsp-ivy)
 
 ;; optional if you want which-key integration
 (use-package which-key
@@ -104,6 +119,8 @@
   :config
   (setq
    cljr-warn-on-eval nil
+   cljr-add-ns-to-blank-clj-files nil ; disable clj-refactor adding ns to blank files
+   cider-eldoc-display-for-symbol-at-point nil ; disable cider showing eldoc during symbol at point
    )
   :hook
     (clojure-mode . my-clojure-mode-hook)
