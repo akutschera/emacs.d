@@ -13,12 +13,7 @@
 ;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
   :config
-  (setq treemacs-tag-follow-delay 1) ;; so I see the current file in treemacs after 1 sec
-  (treemacs-filewatch-mode t) ;; so filechanges (e.g. "save") are shown in treemacs
-  
-  ;; 'simple won't work with treemacs-hide-gitignored-files-mode, see https://github.com/Alexander-Miller/treemacs/issues/962
-  (treemacs-git-mode 'extended) ;; so changed files have a different color.
-  (treemacs-hide-gitignored-files-mode t)
+   (treemacs-hide-gitignored-files-mode t)
   :bind
   (:map global-map
 	("s-1" . treemacs)
